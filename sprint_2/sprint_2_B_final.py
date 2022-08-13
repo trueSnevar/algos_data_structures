@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# successful submission: 69652441
+# successful submission: 69654571
 
 """
 -- ПРИНЦИП РАБОТЫ --
@@ -33,6 +33,8 @@
 в худшем случае.
 """
 
+import operator
+
 from typing import List
 
 def parse_rpn(expression: List) -> int:
@@ -43,21 +45,20 @@ def parse_rpn(expression: List) -> int:
     Output: 7
 
     """
+    operations = {
+        '/': operator.floordiv,
+        '*': operator.mul,
+        '+': operator.add,
+        '-': operator.sub,
+    }
     stack = []
     for char in expression:
-        if char not in '/*+-':
+        if char not in operations:
             stack.append(int(char))
         else:
             b = stack.pop()
             a = stack.pop()
-            if char == '/':
-                res = a // b
-            elif char == '*':
-                res = a * b
-            elif char == '+':
-                res = a + b
-            else:
-                res = a - b
+            res = operations[char](a, b)
             stack.append(res)
     return stack.pop()
 
