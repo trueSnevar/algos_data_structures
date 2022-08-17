@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# https://contest.yandex.ru/contest/23638/problems/J?success=69688105#3484683/2020_05_19/6gL0EfvCEk
 
 from typing import List
 
