@@ -1,3 +1,6 @@
+# coding: utf-8
+# https://contest.yandex.ru/contest/22779/problems/I/
+
 
 class ListNode:
     def __init__(self, val: int, next=None) -> None:
@@ -6,6 +9,10 @@ class ListNode:
 
 
 class ListQueue:
+    """ Класс, реализующий
+    ограниченную очередь на связном списке.
+    
+    """
     def __init__(self) -> None:
         self.head = None
         self.tail = None
@@ -27,7 +34,11 @@ class ListQueue:
         if self.tail == None:
             self.head = self.tail = temp
             return
+        # кладем элемент в следующий за 
+        # хвостом нод
         self.tail.next = temp
+        # обновляем указатель конца
+        # очереди на вновь добавл. нод
         self.tail = temp
 
     def size(self):

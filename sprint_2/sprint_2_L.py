@@ -1,6 +1,13 @@
 # -*- coding: utf-8 -*-
+# https://contest.yandex.ru/contest/22779/problems/L/
 
-def fib(n, k):
+def fib(n: int, k: int) -> int:
+    """ Вывести k последних
+    цифр числа n Фибоначчи.
+     
+    Чтобы вычислить k последних цифр некоторого числа x, 
+    достаточно взять остаток от его деления на число 10k 
+    """
     n0 = 0
     n1 = 1
     for _ in range(n):

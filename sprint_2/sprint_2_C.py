@@ -1,6 +1,13 @@
+# coding: utf-8
+
+# https://contest.yandex.ru/contest/22779/problems/C/
 
 # ! change LOCAL to False before submitting !
 # set LOCAL to True for local testing
+
+# Delete node by index from the given linked list.
+# Написать функцию solution, которая принимает на вход голову списка 
+# и номер удаляемого дела и возвращает голову обновлённого списка.
 
 LOCAL = False
 

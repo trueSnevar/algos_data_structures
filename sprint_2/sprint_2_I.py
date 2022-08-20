@@ -1,6 +1,12 @@
 # -*- coding: utf-8 -*-
+# https://contest.yandex.ru/contest/22779/problems/I/
+
 
 class MyQueueSized:
+	"""
+	Kласс MyQueueSized, который принимает параметр max_size, 
+	означающий максимально допустимое количество элементов в очереди.
+	"""
 	def __init__(self, max_size: int) -> None:
 		self.queue = [0] * max_size
 		self.max_size = max_size

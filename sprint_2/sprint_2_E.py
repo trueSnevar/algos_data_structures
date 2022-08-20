@@ -1,3 +1,6 @@
+# coding: utf-8
+# https://contest.yandex.ru/contest/22779/problems/E/
+
 # ! change LOCAL to False before submitting !
 # set LOCAL to True for local testing
 
@@ -10,7 +13,11 @@ if LOCAL:
             self.next = next  
             self.prev = prev
 
-def solution(node):
+def solution(node: DoubleConnectedNode):
+    """ 
+    Reverse a Doubly-linked list.
+    
+    """
     prev = node.prev
     cur_node = node
     while cur_node:

@@ -1,3 +1,6 @@
+# coding: utf-8
+# https://contest.yandex.ru/contest/22779/problems/D/
+
 # ! change LOCAL to False before submitting !
 # set LOCAL to True for local testing
 
@@ -9,7 +12,11 @@ if LOCAL:
             self.value = value  
             self.next_item = next_item
 
-def solution(node, elem):
+def solution(node: Node, elem: str) -> int:
+    """ Checks if a given elem
+    exists in a given linked list.
+    
+    """
     idx, cur_node = 0, node
     while cur_node is not None:
         if cur_node.value == elem:

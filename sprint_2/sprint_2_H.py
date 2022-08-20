@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+# https://contest.yandex.ru/contest/22779/problems/H/
 
 def is_correct_bracket_seq(brackets: str) -> bool:
     m = {

@@ -1,6 +1,19 @@
 # -*- coding: utf-8 -*-
+# https://contest.yandex.ru/contest/22779/problems/F/
+
 
 class StackMax:
+    """
+    Нужно реализовать класс StackMax, 
+    который поддерживает операцию определения максимума 
+    среди всех элементов в стеке. 
+    
+    Класс должен поддерживать операции: 
+    - push(x), где x – целое число, 
+    - pop(), 
+    - get_max();
+
+    """
     def __init__(self):
         self.items = []
 
