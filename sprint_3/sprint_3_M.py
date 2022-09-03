@@ -1,4 +1,7 @@
 # coding: utf-8
+# doesn't work with TL
+
+import sys
 
 def findMedianSortedArrays(nums1, nums2):
     """
@@ -39,4 +42,6 @@ if __name__ == "__main__":
     m = int(input())
     arr1 = list(map(int, input().strip().split()))
     arr2 = list(map(int, input().strip().split()))
-    print(findMedianSortedArrays(arr1, arr2))
+    #print(findMedianSortedArrays(arr1, arr2))
+    res = (findMedianSortedArrays(arr1, arr2))
+    sys.stdout.write(str(res))
