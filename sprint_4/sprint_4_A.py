@@ -1,17 +1,18 @@
 # coding: utf-8
+# https://contest.yandex.ru/contest/23991/problems/A/?success=70065230#51450/2020_07_09/ggPyaEPG8k
 
-def get_hash(s: str, mod: int, a: int) -> int:
-    n = len(s)
-    res = 0
-    for c in s:
-        res += ((ord(c) * a**(n-1))) % mod
-        n -= 1
-    
-    return res % mod
+def polynomial_hash(s: str, p: int, m: int) -> int:
+    power_of_p = 1
+    hash_val = 0
 
+    for char in s:
+        hash_val = ((hash_val + ord(char) * power_of_p) % m)
+        power_of_p = (power_of_p * p) % m
+ 
+    return hash_val
 
 if __name__ == "__main__":
-    a = int(input())
+    base = int(input())
     mod = int(input())
-    s = input()
-    print(get_hash(s, mod, a))
+    string = input()    
+    print(polynomial_hash(string[::-1], base, mod))
