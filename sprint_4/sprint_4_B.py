@@ -1,53 +1,38 @@
 # coding: utf-8
 
-from dataclasses import dataclass
-import datetime
-from time import sleep
+import random
+import string
 
-class AggrKey:
-    def __init__(self, begin_time, truck_id, shovel_id, unload_id, work_type_id, load_type_id):
-        self.interval_begin = begin_time
-        self.truck_id = truck_id
-        self.shovel_id = shovel_id
-        self.unload_id = unload_id
-        self.work_type_id = work_type_id
-        self.load_type_id = load_type_id
 
-    def __key(self):
-        return self.interval_begin, self.truck_id, self.shovel_id, self.unload_id, self.work_type_id, self.load_type_id
+base = 1000
+mod = 123_987_123
 
-    def __eq__(self, other) -> bool:
-        return self.key == other.key
 
-    def __gt__(self, other):
-        for s, o in zip(self.key, other.key):
-            if s == o:
-                continue
-            if s is None:
-                return False
-            if o is None:
-                return True
-       #return hash(self.key) > hash(other.key)
-                    
+def polynomial_hash(s: str, p: int, m: int) -> None:
+    power_of_p = 1
+    hash_val = 0
 
-    def __lt__(self, other):
-        return hash(self.key) < hash(other.key)
+    for char in s:
+        hash_val = ((hash_val + ord(char) * power_of_p) % m)
+        power_of_p = (power_of_p * p) % m
 
-    def __hash__(self) -> int:
-        return hash(self.__key())
+    return hash_val
 
-    @property
-    def key(self):
-        return self.__key()
 
-def main():
-    now = datetime.datetime.now()
-    key_1 = AggrKey(now, 1, 2, 3, 4, 5)
-    now1 = datetime.datetime.now()
-    key_2 = AggrKey(now, 1, 2, 3, None, 5)
-    print(key_1 == key_2)
-    print(key_1 > key_2) 
-    print(key_1 < key_2)
+def solution():
+    while True:
+        s = ''.join(random.choice(letters) for i in range(20))
+        hash_val = polynomial_hash(s[::-1], base, mod)
+        if not mp.get(hash_val):
+            mp[hash_val] = s
+        else:
+            print(s)
+            print(mp[hash_val])
+            break
 
 if __name__ == "__main__":
-    main()
+    letters = string.ascii_lowercase
+    s = ''.join(random.choice(letters) for i in range(10))
+    hash_val = polynomial_hash(s[::-1], base, mod)
+    mp = {}
+    solution()
