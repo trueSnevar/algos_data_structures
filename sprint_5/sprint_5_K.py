@@ -8,15 +8,6 @@ class Node:
         self.value = value
 
 def print_range(node, l, r):
-    # def inorder(root):
-    #     if not root:
-    #         return
-    #     inorder(root.left)
-    #     if l <= root.value and root.value <= r:
-    #         print(root.value)
-    #     inorder(root.right)
-    # inorder(node)
-    # return
     if not node:
         return
     if node.value > r:
@@ -24,7 +15,9 @@ def print_range(node, l, r):
     if node.value < l:
         return print_range(node.right, l, r)
     else:
+        print_range(node.left, l, r)
         print(node.value)
+        print_range(node.right, l, r)
     
 
 def test():
