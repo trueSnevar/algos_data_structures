@@ -1,13 +1,13 @@
 # coding: utf-8
 
-from node import Node
+#from node import Node
 
 # Comment it before submitting
-# class Node:  
-#     def __init__(self, left=None, right=None, value=0):  
-#         self.right = right
-#         self.left = left
-#         self.value = value
+class Node:  
+    def __init__(self, left=None, right=None, value=0):  
+        self.right = right
+        self.left = left
+        self.value = value
 
 
 def insert(root, key):
