@@ -1,5 +1,5 @@
 # coding: utf-8
-# successful submission: 72196137
+# successful submission: 72319204
 
 """
 ПРИНЦИП РАБОТЫ
@@ -27,27 +27,31 @@
 
 from typing import List
 
+WHITE = 0
+GRAY = 1
+BLACK = 2
+
 def is_cyclic(graph: List[List[int]]) -> bool:
-    colors = ['white'] * len(graph)
+    colors = [WHITE] * len(graph)
 
     def dfs(vtx: int) -> bool:
         stack = [vtx]
         while stack:
             v = stack.pop()
-            if colors[v] == 'white':
-                colors[v] = 'gray'
+            if colors[v] == WHITE:
+                colors[v] = GRAY
                 stack.append(v)
                 for adj in graph[v]:
-                    if colors[adj] == 'gray':
+                    if colors[adj] == GRAY:
                         return True
-                    elif colors[adj] == 'white':
+                    elif colors[adj] == WHITE:
                         stack.append(adj)
-            elif colors[v] == 'gray':
-                colors[v] = 'black'
+            elif colors[v] == GRAY:
+                colors[v] = BLACK
         return False
 
     for i in range(len(graph)):
-        if colors[i] == 'white':
+        if colors[i] == WHITE:
             if dfs(i):
                 return True
     return False
