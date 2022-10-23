@@ -1,4 +1,5 @@
 # coding: utf-8
+# https://contest.yandex.ru/contest/25069/problems/H/?success=72800258#51450/2020_08_12/LO2Xw5dPP9
 
 import sys
 sys.setrecursionlimit(100000)
