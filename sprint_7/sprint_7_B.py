@@ -1,5 +1,5 @@
 # coding: utf-8
-# https://contest.yandex.ru/contest/25596/problems/B/?success=72936130#2989/2020_04_29/JbNm0VNE65
+# https://contest.yandex.ru/contest/25596/problems/B/?success=72936130#2989/2020_04_29/JbNm0VNE65x
 
 from typing import List, Tuple
 
