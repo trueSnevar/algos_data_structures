@@ -1,4 +1,5 @@
 # coding: utf-8
+# Successful submission: 75349307
 
 """
 ПРИНЦИП РАБОТЫ
