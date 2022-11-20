@@ -1,5 +1,5 @@
 # coding: utf-8
-# Successful submission: 75349307
+# Successful submission: 75446730
 
 """
 ПРИНЦИП РАБОТЫ
@@ -25,6 +25,9 @@
     первого несовпадения также остановим поиск, а пока символы совпадают, записываем их
     в ответ, т.е. prefix.
 
+    В целям оптимизации алгоритма достаточно взять лишь две строки - минимальную и максимальную
+    по длине, отсортировав предварительно все декодированные строки в лексикографическом порядке.
+
     шаблон = a b a |c a b a c a
              a b a |c a d a c a
              a b a |a b a a b a
@@ -37,7 +40,8 @@
     в кач-ве шаблона.
 
 ПРОСТРАНСТВЕННАЯ СЛОЖНОСТЬ
-    Нам необходим массив размера О(L), L - где сумма длин всех декодированных строк.
+    Нам необходим массив размера О(min(|s|) + max(|s|)), сумма длин минимальной и максимальной по длине
+    строк.
     Также нам необходимо место для хранения префикса, который в худшем случае займет
     О(min(|s|)), где |s| - длина декодированной строки.
 """
@@ -66,14 +70,14 @@ def decode_strings(lst: List[str]) -> List[str]:
     for s in lst:
         decoded = decode_string(s)
         res.append(decoded)
-    return res
+    res.sort()
+    first, last = res[0], res[-1]
+    return first, last
 
-def longest_common_prefix(strs: List[str]) -> str:
+def longest_common_prefix(s: str, t: str) -> str:
     prefix = ""
-    just_str = strs[0]
-    for idx, char in enumerate(just_str):
-        for s in strs:
-            if idx == len(s) or s[idx] != char:
+    for idx, char in enumerate(s):
+        if char != t[idx]:
                 return prefix 
         prefix += char
     
@@ -86,5 +90,5 @@ if __name__ == "__main__":
         s = input()
         data.append(s)
     decoded_data = decode_strings(data)
-    print(longest_common_prefix(decoded_data))
+    print(longest_common_prefix(*decoded_data))
 
